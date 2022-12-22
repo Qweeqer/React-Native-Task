@@ -1,26 +1,30 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View, ImageBackground } from "react-native";
-import { LoginScreen, RegistrationScreen } from "./screens";
+import { StyleSheet, View, Text, ImageBackground, Button } from "react-native";
+import useRoute from "./route/AuthNavigation";
+import { Asset } from "expo-asset";
 import * as SplashScreen from "expo-splash-screen";
 import { useState, useEffect, useCallback } from "react";
 import * as Font from "expo-font";
 
-SplashScreen.preventAutoHideAsync();
+import { NavigationContainer } from "@react-navigation/native";
 
-const loadFonts = async () => {
-  await Font.loadAsync({
-    "Roboto-Regular": require("./assets/fonts/Roboto/Roboto-Regular.ttf"),
-    "Roboto-Bold": require("./assets/fonts/Roboto/Roboto-Bold.ttf"),
-  });
-};
+// SplashScreen.preventAutoHideAsync();
 
 export default function App() {
+  const routing = useRoute(true);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     async function prepare() {
       try {
-        await loadFonts();
+        await Font.loadAsync({
+          "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+          "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
+          "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+        });
+        await Asset.fromModule(
+          require("./assets/images/background.jpg")
+        ).downloadAsync();
       } catch (e) {
         console.warn(e);
       } finally {
@@ -40,33 +44,11 @@ export default function App() {
   if (!isReady) {
     return null;
   }
+
   return (
-    <View style={styles.container} onLayout={onLayoutRootView}>
-      <ImageBackground
-        source={require("./assets/images/background.jpg")}
-        style={styles.image}
-      >
-        {/* <LoginScreen /> */}
-        <RegistrationScreen />
-        <StatusBar style="auto" />
-      </ImageBackground>
-    </View>
+    <NavigationContainer onLayout={onLayoutRootView}>
+      {routing}
+      <StatusBar style="auto" />
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "transparent",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-
-  image: {
-    flex: 1,
-    justifyContent: "flex-end",
-    resizeMode: "cover",
-    height: "100%",
-    width: "100%",
-  },
-});
