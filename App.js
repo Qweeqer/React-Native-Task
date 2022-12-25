@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View, Text, ImageBackground, Button } from "react-native";
-import useRoute from "./route/AuthNavigation";
-import { Asset } from "expo-asset";
+import useRoute from "./router";
+
 import * as SplashScreen from "expo-splash-screen";
 import { useState, useEffect, useCallback } from "react";
 import * as Font from "expo-font";
@@ -10,8 +10,9 @@ import { NavigationContainer } from "@react-navigation/native";
 
 // SplashScreen.preventAutoHideAsync();
 
+
 export default function App() {
-  const routing = useRoute(true);
+  const routing = useRoute();
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
@@ -22,9 +23,6 @@ export default function App() {
           "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
           "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
         });
-        await Asset.fromModule(
-          require("./assets/images/background.jpg")
-        ).downloadAsync();
       } catch (e) {
         console.warn(e);
       } finally {
