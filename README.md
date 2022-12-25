@@ -1,18 +1,23 @@
 # React-Native-Task5
-Головний екран
+# Головний екран
 ![GitHub actions settings](./assets/images/MainScreen.png)
 # CreatePostsScreen
 
-Підключити камеру в компонент CreatePostsScreen;
+# Підключити камеру в компонент CreatePostsScreen;
+
 ![GitHub actions settings](./assets/images/addCamera.png)
 ![GitHub actions settings](./assets/images/noPhotoPosts.png)
-Під час відкриття екрану CreatePostsScreen активується камера і зображення з неї виводиться в блок з іконкою камери
 
-По кліку на іконку камери робиться знімок
+# Під час відкриття екрану CreatePostsScreen активується камера і зображення з неї виводиться в блок з іконкою камери
+
+# По кліку на іконку камери робиться знімок
+
+
 ![GitHub actions settings](./assets/images/photoAndNamed.png)
+
 # PostsScreen
-Екран після створення поста
+# Екран після створення поста
 ![GitHub actions settings](./assets/images/post.png)
 ![GitHub actions settings](./assets/images/post2.png)
-Виведення локації
+# Виведення локації
 ![GitHub actions settings](./assets/images/Location.png)
