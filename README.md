@@ -19,5 +19,7 @@
 # Екран після створення поста
 ![GitHub actions settings](./assets/images/post.png)
 ![GitHub actions settings](./assets/images/post2.png)
-# Виведення локації
+# Виведення локації: У компоненті окремого посту під час кліку на іконку геолокації перекидає на екран MapScreen, де можна побачити мапу з маркером, де була зроблена фотографія
 ![GitHub actions settings](./assets/images/Location.png)
+# Коментарі: В компоненті окремого посту при кліку на іконку коментарів перекидає на екран CommentsScreen
+![GitHub actions settings](./assets/images/ComentsScreen.png)
