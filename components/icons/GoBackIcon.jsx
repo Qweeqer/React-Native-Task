@@ -1,6 +1,6 @@
 import Svg, { Path } from "react-native-svg";
 
-const BackArrowIcon = () => {
+const GoBackIcon = () => {
   return (
     <Svg width="30" height="30" viewBox="0 0 24 24" fill="none">
       <Path
@@ -14,4 +14,4 @@ const BackArrowIcon = () => {
   );
 };
 
-export default BackArrowIcon;
+export default GoBackIcon;

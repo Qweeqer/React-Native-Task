@@ -1,8 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import { BackArrowButton } from "../../components/BackArrowButton";
-import { MapScreen, HomeScreen, CommentsScreen } from "screens/";
-import { LogoutButton } from "../../components/LogoutButton";
+import { BackArrowHeader } from "../../components/BackArrowHeader";
+import { MapScreen, HomeScreen, CommentsScreen } from "../postsStack";
+import { LogoutHeader } from "../../components/LogoutHeader";
 
 const PostsStack = createStackNavigator();
 
@@ -13,7 +13,7 @@ const PostsScreen = () => {
       backBehavior="history"
       screenOptions={{
         headerTitleStyle: {
-          fontFamily: "Roboto-Medium",
+          fontFamily: "R-Medium",
           fontSize: 17,
         },
         headerStyle: {
@@ -27,21 +27,21 @@ const PostsScreen = () => {
         name="Публикации"
         component={HomeScreen}
         options={() => ({
-          headerRight: () => <LogoutButton />,
+          headerRight: () => <LogoutHeader />,
         })}
       />
       <PostsStack.Screen
         name="Комментарии"
         component={CommentsScreen}
         options={({ navigation }) => ({
-          headerLeft: () => <BackArrowButton navigation={navigation} />,
+          headerLeft: () => <BackArrowHeader navigation={navigation} />,
         })}
       />
       <PostsStack.Screen
         name="Карта"
         component={MapScreen}
         options={({ navigation }) => ({
-          headerLeft: () => <BackArrowButton navigation={navigation} />,
+          headerLeft: () => <BackArrowHeader navigation={navigation} />,
         })}
       />
     </PostsStack.Navigator>

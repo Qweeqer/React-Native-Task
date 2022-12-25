@@ -1,5 +1,5 @@
-import { LogoutIcon } from "./LogoutIcon";
 import { TouchableOpacity } from "react-native";
+import { LogoutIcon } from "./icons";
 
 export const LogoutHeader = () => {
   return (

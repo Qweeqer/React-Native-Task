@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { LoginScreen, RegistrationScreen } from "../screens";
+import { LoginScreen, RegistrationScreen } from "../screens/authStack";
 
 const AuthStack = createStackNavigator();
 
@@ -19,7 +19,7 @@ const AuthNavigation = () => {
         options={{
           headerShown: false,
         }}
-        name="Зарегистрироваться"
+        name="Регистрация"
         component={RegistrationScreen}
       />
     </AuthStack.Navigator>

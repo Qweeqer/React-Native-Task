@@ -1,5 +1,5 @@
-import { BackArrowIcon } from "./BackArrowIcon";
 import { TouchableOpacity } from "react-native";
+import { GoBackIcon } from "./icons";
 
 export const BackArrowHeader = ({ navigation }) => {
   return (
@@ -9,7 +9,7 @@ export const BackArrowHeader = ({ navigation }) => {
       }}
       onPress={() => navigation.goBack()}
     >
-      <BackArrowIcon />
+      <GoBackIcon />
     </TouchableOpacity>
   );
 };

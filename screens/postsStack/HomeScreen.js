@@ -23,7 +23,7 @@ const HomeScreen = ({ route, navigation }) => {
       <View style={styles.userBlock}>
         <Image
           style={styles.userAvatar}
-          source={require("../assets/images/avatar.jpg")}
+          source={require("../../assets/images/avatar.jpg")}
         />
         <View>
           <Text style={styles.userLogin}>Natali Romanova</Text>
@@ -99,11 +99,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
   },
   userLogin: {
-    fontFamily: "Roboto-Bold",
+    fontFamily: "R-Bold",
     fontSize: 13,
   },
   userEmail: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "R-Regular",
     fontSize: 11,
     color: "#212121CC",
   },
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   postTitle: {
-    fontFamily: "Roboto-Medium",
+    fontFamily: "R-Medium",
     fontSize: 16,
     color: "#212121",
     marginBottom: 11,
@@ -134,11 +134,11 @@ const styles = StyleSheet.create({
   },
   commentsCounter: {
     color: "#BDBDBD",
-    fontFamily: "Roboto-Regular",
+    fontFamily: "R-Regular",
     fontSize: 16,
   },
   postPlace: {
-    fontFamily: "Roboto-Regular",
+    fontFamily: "R-Regular",
     fontSize: 16,
     color: "#212121",
     borderBottomWidth: 1,

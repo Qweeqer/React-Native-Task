@@ -1,29 +1,29 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-// import { LogoutHeader } from "./LogoutHeader";
-import { BackArrowButton, LogoutButton } from "../components";
+import { LogoutHeader } from "./LogoutHeader";
+import { BackArrowHeader } from "./BackArrowHeader";
 import {
   PostsScreen,
   CreatePostsScreen,
   ProfileScreen,
-} from "../screens";
+} from "../screens/userScreen";
 
 import { Feather, AntDesign } from "@expo/vector-icons";
 import { View } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 
-const UserBottomTab = createBottomTabNavigator();
+const UserScreen = createBottomTabNavigator();
 
 const MainNavigation = () => {
   return (
-    <UserBottomTab.Navigator
+    <UserScreen.Navigator
       screenOptions={{
         tabBarActiveTintColor: "#212121CC",
         tabBarInactiveTintColor: "#212121CC",
         tabBarShowLabel: false,
         headerTitleAlign: "center",
         headerTitleStyle: {
-          fontFamily: "Roboto-Medium",
+          fontFamily: "R-Medium",
           fontSize: 17,
         },
         headerStyle: {
@@ -32,26 +32,26 @@ const MainNavigation = () => {
         },
       }}
     >
-      <UserBottomTab.Screen
-        // options={({ route }) => {
-        //   return {
-        //     tabBarStyle: ((route) => {
-        //       const routeName = getFocusedRouteNameFromRoute(route) ?? "";
-        //       if (routeName === "Комментарии" || routeName === "Карта") {
-        //         return { display: "none" };
-        //       }
-        //       return;
-        //     })(route),
-        //     tabBarIcon: ({ size, color }) => (
-        //       <AntDesign name="appstore-o" size={size} color={color} />
-        //     ),
-        //     headerShown: false,
-        //   };
-        // }}
+      <UserScreen.Screen
+        options={({ route }) => {
+          return {
+            tabBarStyle: ((route) => {
+              const routeName = getFocusedRouteNameFromRoute(route) ?? "";
+              if (routeName === "Комментарии" || routeName === "Карта") {
+                return { display: "none" };
+              }
+              return;
+            })(route),
+            tabBarIcon: ({ size, color }) => (
+              <AntDesign name="appstore-o" size={size} color={color} />
+            ),
+            headerShown: false,
+          };
+        }}
         name="Home"
         component={PostsScreen}
       />
-      <UserBottomTab.Screen
+      <UserScreen.Screen
         options={({ navigation }) => {
           return {
             tabBarIcon: ({ size, color }) => (
@@ -69,13 +69,13 @@ const MainNavigation = () => {
               </View>
             ),
             tabBarStyle: { display: "none" },
-            headerLeft: () => <BackArrowButton navigation={navigation} />,
+            headerLeft: () => <BackArrowHeader navigation={navigation} />,
           };
         }}
         name="Создать публикацию"
         component={CreatePostsScreen}
       />
-      <UserBottomTab.Screen
+      <UserScreen.Screen
         options={({ navigation }) => {
           return {
             tabBarIcon: ({ size, color }) => (
@@ -87,7 +87,7 @@ const MainNavigation = () => {
         name="Profile"
         component={ProfileScreen}
       />
-    </UserBottomTab.Navigator>
+    </UserScreen.Navigator>
   );
 };
 
