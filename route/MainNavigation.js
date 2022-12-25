@@ -33,21 +33,21 @@ const MainNavigation = () => {
       }}
     >
       <UserBottomTab.Screen
-        // options={({ route }) => {
-        //   return {
-        //     tabBarStyle: ((route) => {
-        //       const routeName = getFocusedRouteNameFromRoute(route) ?? "";
-        //       if (routeName === "Комментарии" || routeName === "Карта") {
-        //         return { display: "none" };
-        //       }
-        //       return;
-        //     })(route),
-        //     tabBarIcon: ({ size, color }) => (
-        //       <AntDesign name="appstore-o" size={size} color={color} />
-        //     ),
-        //     headerShown: false,
-        //   };
-        // }}
+        options={({ route }) => {
+          return {
+            tabBarStyle: ((route) => {
+              const routeName = getFocusedRouteNameFromRoute(route) ?? "";
+              if (routeName === "Комментарии" || routeName === "Карта") {
+                return { display: "none" };
+              }
+              return;
+            })(route),
+            tabBarIcon: ({ size, color }) => (
+              <AntDesign name="appstore-o" size={size} color={color} />
+            ),
+            headerShown: false,
+          };
+        }}
         name="Home"
         component={PostsScreen}
       />
