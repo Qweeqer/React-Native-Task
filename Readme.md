@@ -5,5 +5,5 @@
 ![GitHub actions settings](./assets/images/PostsScreen.png)
 
 # CreatePostsScreen
-![GitHub actions settings](./assets/images/CreatePostsScreen.png)
 
+![GitHub actions settings](./assets/images/CreatePostsScreen.png)
