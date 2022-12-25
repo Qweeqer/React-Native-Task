@@ -1,53 +1,60 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { View } from "react-native";
-import * as Font from "expo-font";
+import { useState, useEffect, useCallback } from "react";
+import { Provider } from "react-redux";
+
+import { Text, View } from "react-native";
+import { createStackNavigator } from "@react-navigation/stack";
 import * as SplashScreen from "expo-splash-screen";
-import { Asset } from "expo-asset";
-import { NavigationContainer } from "@react-navigation/native";
-import { MainNavigation, AuthNavigation } from "./components";
+import * as Font from "expo-font";
 
-// SplashScreen.preventAutoHideAsync();
-// До этого работало, а теперь если не закомментировать эту строку то всегда белый экран на телефоне
+import { store } from "./redux/store";
+import Main from "./Components/Main";
+import Messages from "./Components/Modal";
 
-export default function App() {
-  const [appIsReady, setAppIsReady] = useState(false);
-  const isAuth = true;
+const AuthStack = createStackNavigator();
 
-  useEffect(() => {
-    async function prepare() {
-      try {
-        await Font.loadAsync({
-          "R-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
-          "R-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
-          "R-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
-        });
-        await Asset.fromModule(
-          require("./assets/images/background.jpg")
-        ).downloadAsync();
-      } catch (e) {
-        console.warn(e);
-      } finally {
-        setAppIsReady(true);
-      }
+SplashScreen.preventAutoHideAsync();
+
+const loadFonts = async () => {
+    await Font.loadAsync({
+        "Roboto-Regular": require("./assets/fonts/Roboto-Regular.ttf"),
+        "Roboto-Bold": require("./assets/fonts/Roboto-Bold.ttf"),
+        "Roboto-Medium": require("./assets/fonts/Roboto-Medium.ttf"),
+    });
+};
+
+const App = () => {
+    const [isReady, setIsReady] = useState(false);
+
+    useEffect(() => {
+        async function prepare() {
+            try {
+                await loadFonts();
+            } catch (e) {
+                console.warn(e);
+            } finally {
+                setIsReady(true);
+            }
+        }
+
+        prepare();
+    }, []);
+
+    const onLayoutRootView = useCallback(async () => {
+        if (isReady) await SplashScreen.hideAsync();
+    }, [isReady]);
+
+    if (!isReady) {
+        return null;
     }
-    prepare();
-  }, []);
 
-  const onLayoutRootView = useCallback(async () => {
-    if (appIsReady) {
-      await SplashScreen.hideAsync();
-    }
-  }, [appIsReady]);
+    return (
+        <Provider store={store}>
+            <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+                <Messages />
+                <Main />
+            </View>
+        </Provider>
+    );
+};
 
-  if (!appIsReady) {
-    return null;
-  }
-
-  return (
-    <NavigationContainer onLayout={onLayoutRootView}>
-      <View style={{ height: "100%" }}>
-        {isAuth ? <MainNavigation /> : <AuthNavigation />}
-      </View>
-    </NavigationContainer>
-  );
-}
+export default App;
