@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "react-native-hw-1",
-    "slug": "react-native-hw-1",
+    "slug": "reactsocial",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -18,16 +18,24 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.qweeqer.reactsocial"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.qweeqer.reactsocial"
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "b8f6d2a7-f92b-4ed6-a908-4c1ada85521c"
+      }
+    },
+    "owner": "qweeqer"
   }
 }
