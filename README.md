@@ -1,3 +1,4 @@
+![GitHub actions settings](./assets/Screens/publication.jpg)
 ![GitHub actions settings](./assets/Screens/coments.jpg)
 ![Screenshot_20221130_133335_Expo Go](https://user-images.githubusercontent.com/62076338/204788254-eda82368-da15-4c35-ace6-39e88430a5a4.png)
 
