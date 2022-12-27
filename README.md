@@ -5,4 +5,3 @@
 ![Screenshot_20221122-024115_Expo Go](https://user-images.githubusercontent.com/62076338/203187058-bd736a7e-7d77-4be7-ad7f-62e3c5fb694b.png)
 
 ![Screenshot_20221122-024129_Expo Go](https://user-images.githubusercontent.com/62076338/203187128-e0a3c501-ea60-463a-9de7-52401f8bb49f.png)
-
